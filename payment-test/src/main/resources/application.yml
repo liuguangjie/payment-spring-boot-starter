@@ -1,0 +1,21 @@
+spring:
+  payment:
+    # 蚂蚁金服支付配置
+    alipay:
+      app-id: 2019011863032638
+      public-key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvI5m5XMKCQLeA3oIRgFt6NTBSqChzsTfrZLhQNeAiQLGTCdPInMyWR3XhMBw8ummPQYOb+Nr43r59DqGrrsOBb+8MHWFcMeDLTgrmtgmB+uedEFqvKAbgOM5bJQhFlxXzGzQrMUIYGowMZPNmsa00xm71Lyzuk7AuMLtM7YaBZLUQ5NzSrDn8+TYNMzV3gEMqNuVcWBQs760SKL0pz+Cx8/Xn9cn1n/BvD4xQmiP0Xa0jZomvfDa8Zt87yKUFfGlDGnVNMY3/rsL2y56DmQkOUXb4TG0aYT8oHR6sON686mcUAOhfPfzsdVNDlH822JDq5sAod8w7pwh+aWXx02KXQIDAQAB
+      private-key: MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC8jmblcwoJAt4DeghGAW3o1MFKoKHOxN+tkuFA14CJAsZMJ08iczJZHdeEwHDy6aY9Bg5v42vjevn0Ooauuw4Fv7wwdYVwx4MtOCua2CYH6550QWq8oBuA4zlslCEWXFfMbNCsxQhgajAxk82axrTTGbvUvLO6TsC4wu0zthoFktRDk3NKsOfz5Ng0zNXeAQyo25VxYFCzvrRIovSnP4LHz9ef1yfWf8G8PjFCaI/RdrSNmia98Nrxm3zvIpQV8aUMadU0xjf+uwvbLnoOZCQ5RdvhMbRphPygdHqw43rzqZxQA6F89/Ox1U0OUfzbYkOrmwCh3zDunCH5pZfHTYpdAgMBAAECggEAE/VazOS9ZjDIgUO0hnx2PtPuVdDk77cFGiFW+H8XGumRRdRPWw0ogihXfLTF/+BdeU4fzxYagGyu8nwTb4FbPZ6K8/IsmsBzkSDF9ND2TZZSImoeOzMTVjQ3CtgvHGfP31KRUAhXF6WFzmmftMddso6hxCXpPEpDugrgAr4+yOIQJ5MGVmJSLLDdJA0FjbLlqtq0TPX2kCUR5QSNoDd22jAp7wgSbG3KF//Gdoz5IodHZ/ujVnh1dwClIgKHZayw3Wj8b7YdtLd1DGra5tIwdJG7bLuhpRH/WSMpscK9oS9xpfFxJuYpLS9P+w453fl3EHJJR++MAn/HVAxbXWhTHQKBgQDvtNg+JRHDizCG6Gvv6ZQbSAkO0LCRaoIKNuOx5PYPLMn1ivJeAr6aBVFKo6YIrjrNLril7VBK46LKs2zyEVghBnbY5Et6gBrMnXoVFrY9qp57dAruCdgKXHwUiN52J3gRiIhFf8XBsjE29nYiX9CDXNwWmquYp16ZKyI2tKLv0wKBgQDJX3z0XbpIWkYOUlBhS/sn22b7srj9nLnzUdUCl5YPkqUw+WZ80+5hLmMV/gddWCNwa7i/8/OPqyPB94YyYI9iXQwMfUKOvnaN/3Ow0PbP1WQaCLwcEyaaGRHLfw8drGFDucAbbqBGnWwr2kvI6ME1LzeZT9WHmJ7a/0+y7wdvDwKBgCUdB/ofPS/chiftJoEf1imfLp/Xme754aZ5Nync/Gf/FEnrOHlrzV0Fg7+dtOBVMY+BM1+lbbAarKLbwvt7yfxbBt2wAyu1V/DkVPmc6ZyEpUMSBXszlPqNtTxssJz0oXd9fzPbg5/o2gvbfxD1atBb+UuaqQTarR/j+MklkLC3AoGAcjB2n++CUcL3FOnycKnwWtKcXEAljJLSEzslKhohWuVSTSovxrs64tq2D2OEc5cmSXqcQiUoySBH35bn/ysoQ6P10CM7mcxBWBYyWWK1gndEE0s+uEDX0+xBXf7H6JC2evwbBrM9qa1dCKT58oyh+vGyenp94C1Yb2D1pcbLlVsCgYEAmrJjxXNne9Dlm9QfsjxMdbhddo1Nm4DDZg3TzSpk1SLxI/93Temj5UaYT7HMils0xa4KeyF3mimEikHzEFGDlu6Uk4nbXWMYRXwesOfraw4lE8ZslL1FhVqQ3hBryeypvCc8iqGd+IvqqW+M45sAiLROEIDDo8Ba946B30OJS4I=
+      http-callback: http://manage.dingshiwuliu.com/framework-admin/pay/ali/payback
+      sign-type: RSA2
+      input-charset: utf-8
+    # 微信支付配置
+    wechat:
+      app-id: wxb40f31a761c298ad
+      mch-id: 1523990531
+      secret-key: e423a0d564fc4fc0803b5a61d2e9362a
+      http-callback: http://manage.dingshiwuliu.com/framework-admin/pay/wx/payback
+      sign-type: MD5
+      input-charset: utf-8
+    # 银联支付配置
+    unionpay:
+      app-id: wxb40f31a761c298ad

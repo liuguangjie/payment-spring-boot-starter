@@ -1,0 +1,4 @@
+
+dependencies {
+    compile project(":payment-spring-boot-starter")
+}

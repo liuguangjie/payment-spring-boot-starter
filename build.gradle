@@ -1,0 +1,79 @@
+buildscript {
+    repositories {
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.19.RELEASE'
+    }
+}
+
+/*plugins {
+    id 'org.springframework.boot' version '1.5.19.RELEASE'
+    id 'java'
+}*/
+/**
+ *  https://blog.csdn.net/java_tzx/article/details/83616133
+ *  gradle 项目上传jar包的方式
+ *  搜索关键字   gradle上传jar包到maven仓库
+ */
+
+allprojects{
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'maven-publish' // 
+    
+    sourceCompatibility = 1.8
+    [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+    group 'com.github.liuguangjie'
+    version '0.0.1-beta'
+    repositories {
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+        mavenCentral()
+        jcenter()
+
+    }
+    dependencies {
+        compile('org.springframework.boot:spring-boot-starter-aop')
+        compile('org.springframework.boot:spring-boot-starter-web')
+        compile('org.apache.commons:commons-lang3:3.8.1')
+        compile('com.egzosn:pay-java-wx:2.12.5')
+        compile('com.egzosn:pay-java-ali:2.12.5')
+
+        compile('org.slf4j:jcl-over-slf4j:1.7.25')
+        compile('com.alipay.sdk:alipay-sdk-java:3.4.49.ALL') {
+            // 冲突时优先使用该版本
+            force = true
+            exclude  group: 'commons-logging'
+            /**
+             * // 依据构建名称排除
+             *  exclude module: 'cglib'
+             *  // 依据组织名称排除
+             *  exclude group: 'org.jmock'
+             *  // 依据组织名称+构件名称排除
+             *  exclude group: 'org.unwanted', module: 'iAmBuggy'
+             *
+             *  // 为本依赖关闭依赖传递特性
+             *  transitive = false
+             */
+
+        }
+        compileOnly('org.springframework.boot:spring-boot-configuration-processor')
+        testCompile('junit:junit:4.12')
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+    }
+
+    compileJava.dependsOn(processResources)
+}
+
+
+
+
+
+
+
+
+

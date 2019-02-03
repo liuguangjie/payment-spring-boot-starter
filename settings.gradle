@@ -1,0 +1,4 @@
+rootProject.name = 'payment'
+include 'payment-spring-boot-starter'
+include 'payment-test'
+
