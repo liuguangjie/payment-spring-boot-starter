@@ -1,0 +1,61 @@
+
+//设置动态属性
+ext {
+    //发布到仓库用户名
+    publishUserName = "admin"
+    //发布到仓库地址
+    publishUserPassword = "admin123"
+    //仓库地址
+    publishURL="http://maven.nansa.nat300.top/repository/huiju_Release/"
+
+    apiBaseJarName = "payment-spring-boot-starter"
+    apiBaseJarVersion = '0.0.1-beta'
+    builtBy="gradle 4.10.3"
+}
+
+//jar包名称组成：[baseName]-[appendix]-[version]-[classifier].[extension]
+//打包class文件
+task apiBaseJar(type:Jar){
+    version apiBaseJarVersion
+    baseName apiBaseJarName
+    from sourceSets.main.output
+    destinationDir file("$buildDir/libs")
+    manifest {
+        attributes 'packageName': apiBaseJarName, 'Built-By': builtBy,'Built-date': new Date().format('yyyy-MM-dd HH:mm:ss'),'Manifest-Version':version
+    }
+}
+//打包源码
+task apiBaseSourceJar(type:Jar){
+    version apiBaseJarVersion
+    baseName apiBaseJarName
+    classifier "sources"
+    from sourceSets.main.allSource
+    destinationDir file("$buildDir/libs")
+    manifest {
+        attributes 'packageName': apiBaseJarName+'-sources', 'Built-By': builtBy,'Built-date': new Date().format('yyyy-MM-dd HH:mm:ss'),'Manifest-Version':version
+    }
+}
+
+
+//上传jar包
+publishing {
+    publications {
+        publishing.publications.create('apiBase', MavenPublication) {
+            groupId 'com.github.liuguangjie'
+            artifactId apiBaseJarName
+            version apiBaseJarVersion
+            //同时上传class包和源码包
+            artifacts = [apiBaseJar,apiBaseSourceJar]
+        }
+    }
+    repositories {
+        maven {
+            url  publishURL
+            credentials {
+                username = publishUserName
+                password = publishUserPassword
+            }
+        }
+    }
+}
+ 
